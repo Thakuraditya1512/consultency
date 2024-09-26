@@ -6,10 +6,103 @@
     <meta name="description" content="Start your development with LeadMark landing page.">
     <meta name="author" content="Devcrud">
     <title>Meritminds.co</title>
+
+    <style>
+        /* For Large Screens (Desktop, Laptop) */
+        @media (min-width: 768px) {
+            #study-portfolio {
+                display: block; /* Show portfolio section */
+            }
+
+            #destination-gallery {
+                display: none; /* Hide destination section */
+            }
+        }
+
+        /* For Small Screens (Mobile, Tablet) */
+        @media (max-width: 767px) {
+            #study-portfolio {
+                display: none; /* Hide portfolio section */
+            }
+
+            #destination-gallery {
+                display: block; /* Show destination section */
+            }
+        }
+
+        /* General Styles for Both Sections */
+        .portfolio-grid, .destination-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            justify-items: center;
+            margin-top: 30px;
+        }
+
+        .portfolio-item, .destination-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .portfolio-content img, .destination-content img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        /* Hover Effects */
+        .portfolio-item:hover img, .destination-item:hover img {
+            transform: scale(1.1);
+        }
+
+        /* Overlay Effect */
+        .portfolio-overlay, .destination-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .portfolio-item:hover .portfolio-overlay, .destination-item:hover .destination-overlay {
+            opacity: 1;
+        }
+
+        /* Hover Content */
+        .hover-content, .hover-info {
+            color: #fff;
+            text-align: center;
+        }
+
+        .hover-content h6, .hover-info h6 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .hover-content p, .hover-info p {
+            font-size: 0.9rem;
+        }
+    </style>
     <!-- font icons -->
     <link rel="stylesheet" href="assets/vendors/themify-icons/css/themify-icons.css">
     <!-- Bootstrap + LeadMark main styles -->
 	<link rel="stylesheet" href="assets/css/leadmark.css">
+
+
+
+   
+
+
+
 </head>
 <body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
 
@@ -146,15 +239,12 @@
     
     <!-- End OF About Section -->
 
-    <section id="study-portfolio" class="section portfolio-section" style="text-align:center;">
+      <section id="study-portfolio" class="section portfolio-section" style="text-align:center;">
         <div class="container">
             <h6 class="section-title text-center">Our Portfolio</h6>
             <h6 class="section-subtitle mb-5 text-center">Explore opportunities across top destinations</h6>
-    
-            <!-- Filters -->
-        
-    
-            <!-- Portfolio Container -->
+
+            <!-- Portfolio Grid -->
             <div class="portfolio-grid">
                 <!-- USA -->
                 <div class="portfolio-item country-usa">
@@ -171,7 +261,7 @@
                         </div>
                     </div>
                 </div>
-    
+
                 <!-- UK -->
                 <div class="portfolio-item country-uk">
                     <div class="portfolio-content">
@@ -187,7 +277,7 @@
                         </div>
                     </div>
                 </div>
-    
+
                 <!-- Australia -->
                 <div class="portfolio-item country-australia">
                     <div class="portfolio-content">
@@ -203,7 +293,7 @@
                         </div>
                     </div>
                 </div>
-    
+
                 <!-- Canada -->
                 <div class="portfolio-item country-canada">
                     <div class="portfolio-content">
@@ -219,7 +309,7 @@
                         </div>
                     </div>
                 </div>
-    
+
                 <!-- Ireland -->
                 <div class="portfolio-item country-ireland">
                     <div class="portfolio-content">
@@ -235,7 +325,7 @@
                         </div>
                     </div>
                 </div>
-    
+
                 <!-- Germany -->
                 <div class="portfolio-item country-germany">
                     <div class="portfolio-content">
@@ -254,6 +344,115 @@
             </div>   
         </div>
     </section>
+
+    <!-- Destination Gallery for Small Screens -->
+    <section id="destination-gallery" class="section destination-section" style="text-align:center;">
+        <div class="gallery-container">
+            <h6 class="section-header text-center">Our Destinations</h6>
+            <h6 class="section-subtext mb-5 text-center">Explore opportunities across top study destinations</h6>
+
+            <!-- Destination Grid -->
+            <div class="destination-grid">
+                <!-- USA -->
+                <div class="destination-item country-usa">
+                    <div class="destination-content">
+                        <img src="https://st3.depositphotos.com/1005891/35853/i/450/depositphotos_358531720-stock-photo-american-flag-on-old-flagpole.jpg" 
+                             alt="Study in USA">
+                        <div class="destination-overlay">
+                            <a href="usa-details.html">
+                                <div class="hover-info">
+                                    <h6 class="destination-title">Study in USA</h6>
+                                    <p class="destination-subtitle">Explore education and career opportunities in the USA</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- UK -->
+                <div class="destination-item country-uk">
+                    <div class="destination-content">
+                        <img src="https://cdn.pixabay.com/photo/2017/06/15/16/52/united-kingdom-2405963_640.jpg" 
+                             alt="Study in UK">
+                        <div class="destination-overlay">
+                            <a href="uk-details.html">
+                                <div class="hover-info">
+                                    <h6 class="destination-title">Study in UK</h6>
+                                    <p class="destination-subtitle">Discover top universities and courses in the UK</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Australia -->
+                <div class="destination-item country-australia">
+                    <div class="destination-content">
+                        <img src="https://www.theflagshop.co.uk/media/catalog/product/cache/1aa45e34d8351bef7860daeb50e7952c/a/u/australia-flag-std_1.jpg" 
+                             alt="Study in Australia">
+                        <div class="destination-overlay">
+                            <a href="australia-details.html">
+                                <div class="hover-info">
+                                    <h6 class="destination-title">Study in Australia</h6>
+                                    <p class="destination-subtitle">Find out about studying and living in Australia</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Canada -->
+                <div class="destination-item country-canada">
+                    <div class="destination-content">
+                        <img src="https://www.theflagshop.co.uk/media/catalog/product/c/a/canada-flag-std.jpg" 
+                             alt="Study in Canada">
+                        <div class="destination-overlay">
+                            <a href="canada-details.html">
+                                <div class="hover-info">
+                                    <h6 class="destination-title">Study in Canada</h6>
+                                    <p class="destination-subtitle">Discover top universities and career prospects in Canada</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ireland -->
+                <div class="destination-item country-ireland">
+                    <div class="destination-content">
+                        <img src="https://cdn11.bigcommerce.com/s-3wskl27okf/images/stencil/1280x1280/products/2601/4120/Flag_of_Ireland__10258.1662206239.jpg?c=1" 
+                             alt="Study in Ireland">
+                        <div class="destination-overlay">
+                            <a href="ireland-details.html">
+                                <div class="hover-info">
+                                    <h6 class="destination-title">Study in Ireland</h6>
+                                    <p class="destination-subtitle">Explore top educational programs in Ireland</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Germany -->
+                <div class="destination-item country-germany">
+                    <div class="destination-content">
+                        <img src="https://www.bundestag.de/resource/image/217958/16x9/1460/822/e78e2a80fa99b36e0d5e63be5b6ff63b/92C52C5CC1C78840BF7E19F4D6BA446F/german_flag.jpg" 
+                             alt="Study in Germany">
+                        <div class="destination-overlay">
+                            <a href="germany-details.html">
+                                <div class="hover-info">
+                                    <h6 class="destination-title">Study in Germany</h6>
+                                    <p class="destination-subtitle">Find out about top universities and engineering programs in Germany</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>   
+        </div>
+    </section>
+
+    
     
     
     
